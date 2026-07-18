@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'default' => env('QUEUE_CONNECTION', 'database'),
+    'default' => env('APP_ENV') === 'production'
+        ? 'sync'
+        : env('QUEUE_CONNECTION', 'database'),
 
     /*
     |--------------------------------------------------------------------------
